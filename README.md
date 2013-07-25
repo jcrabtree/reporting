@@ -6,6 +6,8 @@ Automatic reporting tools:
 Idea is to create python scripts that run daily (perhaps weekly and sometimes monthly) on the DW with the outputs
 to a report or presentation.
 
+Good for proto-typing some of what may end up in the portal?
+
 This will be a bit messy.  There are a few unknowns on the best method, but the idea is to keep things relatively
 modular (i.e., small) and then group scripts/plots togther when forming reports.
 
