@@ -19,4 +19,4 @@ Current ideas: 1. whack in various notebooks which do the DW data grab and plots
                3. test this with asx data
                
 
-
+http://electricityauthority.github.io/reporting/
