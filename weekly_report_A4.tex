@@ -156,6 +156,26 @@
     \node (kinmap) [xshift=-0.5cm,yshift=-0.5cm] at (current page.north east) [below left] {\includegraphics[width=8cm]{ea-logo-medium.jpg}};
 \end{tikzpicture}
 
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node (kinmap) [xshift=1.35cm,yshift=8cm] at (current page.south west) [above right] {
+    
+    \begin{minipage}{\textwidth}\tiny This document is provided for information purposes only. The Electricity Authority and other parties who have contributed information to this document (Contributing Parties) make no representation or warranty as to the accuracy or completeness of the information contained in this document. The Electricity Authority and the Contributing Parties accept no liability or responsibility for any loss, costs or expenses, of whatever nature arising out of or in connection with the use of this document.
+
+©ASX Limited ABN 98 008 624 691 (ASX) 2012. All rights reserved. ASX information is reproduced with the permission of ASX. ASX information should not be reproduced, stored in a retrieval system or transmitted in any form whether in whole or in part without the prior
+written permission of ASX.
+
+The information in this document does not constitute personalised financial advice. While the Authority has made every effort to ensure that the information provided is accurate, you should not rely on this information to make any financial decisions. If you are a considering taking an exposure to
+electricity spot prices or to financial derivatives referenced to electricity spot prices, you should carefully consider the risks and benefits and, if necessary, seek professional advice.
+\end{minipage}
+};
+\end{tikzpicture}
+
+
+
+
+
+
 \newpage
 
 
@@ -165,6 +185,7 @@
 \includegraphics[max size={\textwidth}{0.9\textheight}]{figures/hrc.pdf}
 \end{center}
 
+Current situation \today \footnote{Source: Electricity Authority}
 
 
 \subsection{NZ total storage and inflows over past year}
@@ -278,7 +299,7 @@ past year}
 \subsection{Trends over last year - Benmore minus Otahuhu}
 
 \begin{center}
-\includegraphics[max size={0.825\textwidth}{0.9\textheight}]{figures/asx_ben_minus_ota_year.pdf}
+\includegraphics[max size={\textwidth}{0.9\textheight}]{figures/asx_ben_minus_ota_year.pdf}
 \end{center}
 
 \end{document}
