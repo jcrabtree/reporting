@@ -18,6 +18,16 @@
 \usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{url}
+\usepackage{fancyhdr}
+\usepackage[ddmmyyyy,hhmmss]{datetime}
+\pagestyle{fancyplain}
+\rfoot{\tiny Last compiled on \today\ at \currenttime}
+\cfoot{}
+\rhead{}
+\lhead{}
+\chead{}
+
+\lfoot{\tiny Page \thepage}
 
 % Scale down larger images
 \usepackage[export]{adjustbox}
@@ -139,7 +149,7 @@
 % Prevent overflowing lines due to urls and other hard-to-break entities.
 \sloppy
 
-
+\renewcommand{\headrulewidth}{0.0pt}
 
 
 \begin{document}
@@ -147,6 +157,7 @@
 
 \title{Electricity Authority Weekly Report}
 \author{Market Performance team}
+%\date{\today \hspace{1mm} \\ \tiny(\currenttime)}
 \maketitle
 \thispagestyle{empty}
 \begin{tikzpicture}[remember picture,overlay]
@@ -154,8 +165,12 @@
 \end{tikzpicture}
 
 \begin{tikzpicture}[remember picture,overlay]
-    \node (kinmap) [xshift=-0.5cm,yshift=-0.5cm] at (current page.north east) [below left] {\includegraphics[width=8cm]{/home/dave/python/reporting/ea-logo-medium.jpg}};
+    \node (kinmap) [xshift=-0.5cm,yshift=-0.5cm] at (current page.north east) [below left] {\includegraphics[width=6cm]{/home/dave/python/reporting/ea-logo-medium.jpg}};
 \end{tikzpicture}
+
+%\begin{tikzpicture}[remember picture,overlay]
+%    \node (kinmap) [xshift=0.5cm,yshift=0.25cm] at (current page.south) [above] {\tiny Compiled: \today \hspace{0.5mm} \currenttime};
+%\end{tikzpicture}
 
 
 \begin{tikzpicture}[remember picture,overlay]
@@ -244,7 +259,7 @@ past year}
 \begin{center}
 \includegraphics[max size={\textwidth}{0.9\textheight}]{/home/dave/python/reporting/figures/niwa.png}
 \end{center}
-\scriptsize Source: \url{http://www.niwa.co.nz/climate/sco/seasonal-climate-outlook-august-october-2013}
+\scriptsize Source: \url{http://www.niwa.co.nz/climate/sco}
 
 
 \section{Three month demand weighted price comparison}
@@ -277,8 +292,9 @@ past year}
 \begin{center}
 \includegraphics[max size={\textwidth}{0.9\textheight}]{/home/dave/python/reporting/figures/cq_trend.pdf}
 \end{center}
-\scriptsize Source: ASX \url{http://www.asx.com.au}
+\scriptsize Note: The implied spot price is the calculated average spot price over the remainder of the quarter, implied by the current settlement price.
 
+\scriptsize Source: ASX \url{http://www.asx.com.au}
 
 \subsection{Monthly Volumes}
 
