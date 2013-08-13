@@ -72,8 +72,8 @@ print "Getting NIWA Rainfall outlook"
 G.get_niwa_pic()
 
 print "Getting pricing info from DW - THIS IS SLOW!"
-#lwaps = ea.get_lwaps(connection)
-#ea.plot_lwap(8,lwaps,path + '/figures/lwap.pdf')
+lwaps = ea.get_lwaps(connection)
+ea.plot_lwap(8,lwaps,path + '/figures/lwap.pdf')
 
 # Hedge Market
 print "Getting Hedge Market data"
