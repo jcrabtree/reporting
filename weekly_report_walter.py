@@ -56,14 +56,30 @@ p=ea.hrc_plot(1,SI_HRC2['12/'+str(dt.datetime.now().year-1):'2/1/'+str(dt.dateti
          history_repeats['Actual'],\
          history_repeats['mean'],'figures/hrc.pdf')
 
+p=ea.hrc_plot(1,SI_HRC2['12/'+str(dt.datetime.now().year-1):'2/1/'+str(dt.datetime.now().year+1)],\
+         history_repeats['Actual'],\
+         history_repeats['mean'],'figures/hrc.png')
+
 print "Printing Hydrology data to " + path + "/figures"
 
 ea.hydrology_plot(2,NZ,'figures/nz.pdf')
+ea.hydrology_plot(2,NZ,'figures/nz.png')
+
 ea.hydrology_plot(3,Taupo,'figures/taupo.pdf')
+ea.hydrology_plot(3,Taupo,'figures/taupo.png')
+
 ea.hydrology_plot(4,Tekapo,'figures/tekapo.pdf')
+ea.hydrology_plot(4,Tekapo,'figures/tekapo.png')
+
 ea.hydrology_plot(5,Pukaki,'figures/pukaki.pdf')
+ea.hydrology_plot(5,Pukaki,'figures/pukaki.png')
+
 ea.hydrology_plot(6,Hawea,'figures/hawea.pdf')
+ea.hydrology_plot(6,Hawea,'figures/hawea.png')
+
 ea.hydrology_plot(7,TeAnauManapouri,'figures/teanaumanapouri.pdf')
+ea.hydrology_plot(7,TeAnauManapouri,'figures/teanaumanapouri.png')
+
 
 print "Getting Meridian snow picture"
 G = ea.get_web_pics()
@@ -74,6 +90,7 @@ G.get_niwa_pic()
 print "Getting pricing info from DW - THIS IS SLOW!"
 lwaps = ea.get_lwaps(connection)
 ea.plot_lwap(8,lwaps,path + '/figures/lwap.pdf')
+ea.plot_lwap(8,lwaps,path + '/figures/lwap.png')
 
 # Hedge Market
 print "Getting Hedge Market data"
@@ -118,15 +135,22 @@ BEN_BA = ea.CQ_data(benmore,ben,spot_BEN_EXMEAN,CQ,'benmore')
 print "Printing Hedge Market data"
 
 ea.forward_price_curve(9,ota,"Reds",path + '/figures/ota_fpc.pdf')
+ea.forward_price_curve(9,ota,"Reds",path + '/figures/ota_fpc.png')
 ea.forward_price_curve(10,ben,"Blues",path + '/figures/ben_fpc.pdf')
+ea.forward_price_curve(10,ben,"Blues",path + '/figures/ben_fpc.png')
 ea.bid_ask_plot(11,OTA_BA,BEN_BA,path + '/figures/cq_trend.pdf')
+ea.bid_ask_plot(11,OTA_BA,BEN_BA,path + '/figures/cq_trend.png')
 ea.plot_monthly_volumes(12,ota,ben,path + '/figures/asx_volumes.pdf')
+ea.plot_monthly_volumes(12,ota,ben,path + '/figures/asx_volumes.png')
 ea.plot_open_interest(13,ota,ben,path + '/figures/asx_opint.pdf')
+ea.plot_open_interest(13,ota,ben,path + '/figures/asx_opint.png')
 mpl.rcParams['xtick.labelsize']=16            #setting tick label size
 ota_sum,ota_win = ea.filter_last_year(ota,CQ)
 ben_sum,ben_win = ea.filter_last_year(ben,CQ)
 ea.plot_last_year(14,ota_sum,ota_win,path + '/figures/asx_ota_year.pdf')
+ea.plot_last_year(14,ota_sum,ota_win,path + '/figures/asx_ota_year.png')
 ea.plot_last_year(15,ben_sum,ben_win,path + '/figures/asx_ben_year.pdf')
+ea.plot_last_year(15,ben_sum,ben_win,path + '/figures/asx_ben_year.png')
 
 ben_minus_ota_sum = {}
 ben_minus_ota_win = {}
@@ -142,6 +166,7 @@ ben_minus_ota_win['Future quarters'] = ben_win['Future quarters']-ota_win['Futur
 ben_minus_ota_win['Past quarters'] = ben_win['Past quarters']-ota_win['Past quarters']
 
 ea.plot_last_year(16,ben_minus_ota_sum,ben_minus_ota_win,path + '/figures/asx_ben_minus_ota_year.pdf')
+ea.plot_last_year(16,ben_minus_ota_sum,ben_minus_ota_win,path + '/figures/asx_ben_minus_ota_year.png')
 
 
 
