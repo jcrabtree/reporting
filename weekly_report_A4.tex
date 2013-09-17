@@ -20,6 +20,7 @@
 \usepackage{url}
 \usepackage{fancyhdr}
 \usepackage[ddmmyyyy,hhmmss]{datetime}
+\usepackage{booktabs}
 \pagestyle{fancyplain}
 \rfoot{\tiny Last compiled on \today\ at \currenttime}
 \cfoot{}
@@ -203,7 +204,7 @@ electricity spot prices or to financial derivatives referenced to electricity sp
 
 \scriptsize Source: HRCs:Electricity Authority/System Operator, Hydro data \url{ http://www.comithydro.niwa.co.nz/}
 
-
+\newpage
 
 \subsection{NZ total storage and inflows over past year}
 \vspace{5mm}
@@ -287,6 +288,8 @@ past year}
 \end{center}
 \scriptsize Source: ASX \url{http://www.asx.com.au}
 
+\newpage
+
 \subsection{Current quarter trends}
 
 \begin{center}
@@ -304,11 +307,22 @@ past year}
 \scriptsize Source: ASX \url{http://www.asx.com.au}
 
 \subsection{Open Interest}
-\vspace{2cm}
 \begin{center}
 \includegraphics[max size={\textwidth}{0.9\textheight}]{/home/dave/python/reporting/figures/asx_opint.pdf}
 \end{center}
 \scriptsize Source: ASX \url{http://www.asx.com.au}
+
+\subsection{Hedge Contract data}
+\vspace{10mm}
+\begin{center}
+\footnotesize
+\input{/home/dave/python/reporting/tables/asx_table_1.tex}
+\end{center}
+
+%\input{/home/dave/python/reporting/comments/comment.tex}
+
+\scriptsize Source: ASX \url{http://www.asx.com.au}
+
 
 \subsection{Trends over last year - Otahuhu}
 

@@ -29,8 +29,9 @@ print "Getting COMIT and HRC data"
 inflow_file = os.path.join('/home','dw','comit','data','inflows.pickle')
 storage_file =os.path.join('/home','dw','comit','data','storage.pickle')
 ea_hrc = os.path.join('/home','dw','comit','data','hydroriskcurves','HRC_History_20130618.csv')   
-so_hrc ='''http://www.systemoperator.co.nz/f3933,83729137/HRC_data_2013_2014.xlsx'''
-    
+so_hrc ='''http://www.systemoperator.co.nz/f3933,83729137/HRC_data_2013_2014_-_September_update.xlsx'''
+
+
 inflows,storage = ea.get_comit_data(inflow_file,storage_file)
 
 NZ =     ea.panel_beater(storage.sum(axis=1),inflows.sum(axis=1),365)
@@ -50,7 +51,6 @@ history_repeats = history_repeats['12/'+str(dt.datetime.now().year-1):'2/1/'+str
 
 path = '''/home/dave/python/reporting/'''
 os.chdir(path)
-
 
 p=ea.hrc_plot(1,SI_HRC2['12/'+str(dt.datetime.now().year-1):'2/1/'+str(dt.datetime.now().year+1)],\
          history_repeats['Actual'],\
@@ -79,7 +79,6 @@ ea.hydrology_plot(6,Hawea,'figures/hawea.png')
 
 ea.hydrology_plot(7,TeAnauManapouri,'figures/teanaumanapouri.pdf')
 ea.hydrology_plot(7,TeAnauManapouri,'figures/teanaumanapouri.png')
-
 
 print "Getting Meridian snow picture"
 G = ea.get_web_pics()
@@ -132,6 +131,11 @@ spot_BEN_EXMEAN = pd.expanding_mean(spot_BEN) #Benmore expanding mean
 OTA_BA = ea.CQ_data(otahuhu,ota,spot_OTA_EXMEAN,CQ,'otahuhu')
 BEN_BA = ea.CQ_data(benmore,ben,spot_BEN_EXMEAN,CQ,'benmore')
 
+print "Generate LaTex table"
+
+ea.asx_table_maker(otahuhu,benmore,ota,ben,CQ,path + '/tables/asx_table_1.tex')
+#ea.asx_market_comment(ota,ben,path + '/comments/comment.tex')
+
 print "Printing Hedge Market data"
 
 ea.forward_price_curve(9,ota,"Reds",path + '/figures/ota_fpc.pdf')
@@ -151,6 +155,7 @@ ea.plot_last_year(14,ota_sum,ota_win,path + '/figures/asx_ota_year.pdf')
 ea.plot_last_year(14,ota_sum,ota_win,path + '/figures/asx_ota_year.png')
 ea.plot_last_year(15,ben_sum,ben_win,path + '/figures/asx_ben_year.pdf')
 ea.plot_last_year(15,ben_sum,ben_win,path + '/figures/asx_ben_year.png')
+
 
 ben_minus_ota_sum = {}
 ben_minus_ota_win = {}
